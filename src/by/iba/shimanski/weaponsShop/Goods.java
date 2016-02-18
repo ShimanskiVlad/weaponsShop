@@ -30,22 +30,18 @@ public class Goods<T extends Weapon> {
 		this.productCount = productCount;
 	}
 
-	
 	public double getProductCost() {
 		return productCost;
-	}
-	
+	}	
 
 	public void setProductCost(double productCost) {
 		this.productCost = productCost;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Goods [product=" + product + ", productCount=" + productCount
 				+ ", productCost=" + productCost + "]";
 	}
-	
 	
 }
