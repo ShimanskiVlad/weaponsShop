@@ -50,7 +50,7 @@ public class Shop {
 	}
 	
 	public boolean deleteProduct(int index) {
-		if ( index < count && index > 0) {
+		if ( index <= count && index > 0) {
 			System.arraycopy(products, index, products, index - 1, count - index);
 			products[count - 1] = null;
 			--count;

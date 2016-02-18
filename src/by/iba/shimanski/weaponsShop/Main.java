@@ -18,7 +18,7 @@ public class Main {
 		
 		shop.showProducts();
 		
-		shop.deleteProduct(2);
+		shop.deleteProduct(4);
 		
 		shop.showProducts();
 		
