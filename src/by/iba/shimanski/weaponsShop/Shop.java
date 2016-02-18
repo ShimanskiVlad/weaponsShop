@@ -50,7 +50,7 @@ public class Shop {
 	}
 	
 	public boolean deleteProduct(int index) {
-		if ( index < count) {
+		if ( index < count && index > 0) {
 			for (int i = index - 1; i < count - 1; ++i) {
 				products[i] = products[i + 1];
 			}
