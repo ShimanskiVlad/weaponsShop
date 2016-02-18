@@ -10,14 +10,15 @@ public class Main {
 		Goods<Handgun> handguns = new Goods<Handgun>(handgun, 50, 300);
 		Goods<MachineGun<String>> machineguns = new Goods<MachineGun<String>>(machineGun, 33, 788);
 		
-		Shop shop = new Shop(3);
+		Shop shop = new Shop(4);
 		shop.addProduct(handguns);
 		shop.addProduct(sticks);
 		shop.addProduct(machineguns);
+		shop.addProduct(handguns);
 		
 		shop.showProducts();
 		
-		shop.deleteProduct(1);
+		shop.deleteProduct(2);
 		
 		shop.showProducts();
 		
