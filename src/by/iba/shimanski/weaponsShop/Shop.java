@@ -1,62 +1,36 @@
 package by.iba.shimanski.weaponsShop;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Shop {
-	private Goods[] products;
-	private int size;
-	private int count = 0;
+	//private Goods[] products;
 	
-	public Shop(int size) {
-		products = new Goods[size];
-		this.size = size;
-	}
-
-	public Shop(Goods... products) {
-		this.products = products;
-		this.size = this.count = products.length;
-	}
-
-	public Goods[] getProducts() {
-		return products;
-	}
-			
-	public void showProducts() {
-		int i = 1;
-		for (Goods item : products) {
-			if (item != null) {
-				System.out.println(i + ". " + item);
-			}
-			++i;
-		}
-		System.out.println("***********************************************************************************************************");
+	private Map<Goods, Integer> products; //goods and its count
+	
+	public Shop() {
+		products = new HashMap<>();
 	}
 	
-	@Override
-	public String toString() {
-		return "Shop [products=" + Arrays.toString(products) + "]";
-	}
-	
-	public boolean addProduct(Goods item) {
-		if (count != size ) {
-			products[count] = item;
-			++count;
-			return true;
+	public void addProduct(Goods product, Integer count) {
+		Integer temp = products.get(product);
+		if (temp == null) {
+			products.put(product, count);
 		}
 		else {
-			System.out.println("No available place!");
+			products.replace(product, temp + count); 
 		}
-		return false;
+	}
+
+	public void showProducts() {
+		System.out.println("***************************");
+		int i = 1;
+		for (Map.Entry<Goods, Integer> prod: products.entrySet()) {
+			System.out.println(i + " " + prod);
+			++i;
+		}
 	}
 	
-	public boolean deleteProduct(int index) {
-		if ( index <= count && index > 0) {
-			System.arraycopy(products, index, products, index - 1, count - index);
-			products[count - 1] = null;
-			--count;
-			return true;
-		}
-		return false;
-	}
 
 }
