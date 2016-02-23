@@ -26,7 +26,7 @@ public class Goods<T extends Weapon> {
 
 	@Override
 	public String toString() {
-		return "Goods [product=" + product + ", productCost=" + productCost
+		return "[product=" + product + ", productCost=" + productCost
 				+ "]";
 	}
 

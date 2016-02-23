@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Shop {
-	//private Goods[] products;
 	
 	private Map<Goods, Integer> products; //goods and its count
 	
@@ -23,14 +22,21 @@ public class Shop {
 		}
 	}
 
-	public void showProducts() {
-		System.out.println("***************************");
-		int i = 1;
-		for (Map.Entry<Goods, Integer> prod: products.entrySet()) {
-			System.out.println(i + " " + prod);
-			++i;
-		}
+	public void deleteProduct(Goods product) {
+		products.remove(product);
 	}
 	
+	public Map<Goods, Integer> getProducts() {
+		return products;
+	}
+	
+	public void changeProduct(Goods product, Integer newCount) {
+		if (newCount > 0) {
+			products.replace(product, newCount);
+		}
+		else {
+			products.remove(product);
+		}
+	}
 
 }
