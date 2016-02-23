@@ -172,15 +172,7 @@ public class ShopView {
 	}
 
 	private static void showSummPrice() {
-		System.out.println(getSummPrice());
+		System.out.println(cart.getSummaryPrice());
 	}
 
-	private static Double getSummPrice() {
-		Double summ = 0.0;
-		List<Goods> prods = cart.getPurchases();
-		for (Goods item : prods) {
-			summ += item.getProductCost();
-		}
-		return summ;
-	}
 }

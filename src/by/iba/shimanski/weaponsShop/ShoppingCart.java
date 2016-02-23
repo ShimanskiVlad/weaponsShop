@@ -31,4 +31,11 @@ public class ShoppingCart {
 		purchases.clear();
 	}
 	
+	public Double getSummaryPrice() {
+		Double summ = 0.0;
+		for (Goods item : purchases) {
+			summ += item.getProductCost();
+		}
+		return summ;
+	}
 }
