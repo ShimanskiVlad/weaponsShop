@@ -27,4 +27,8 @@ public class ShoppingCart {
 		return purchases;
 	}
 	
+	public void clearAll() {
+		purchases.clear();
+	}
+	
 }

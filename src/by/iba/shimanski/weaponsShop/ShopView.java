@@ -1,5 +1,6 @@
 package by.iba.shimanski.weaponsShop;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class ShopView {
 		System.out.println("1. Посмотреть доступные товары в магазине.");
 		System.out.println("2. Посмотреть мою корзину.");
 		System.out.println("3. Выход.");
-		int choice = scanner.nextInt();
+		int choice = getChoice(3);
 		switch(choice) {
 		case 1:
 			showProducts();				
@@ -47,8 +48,32 @@ public class ShopView {
 			showCart();
 			break;
 		case 3:
+			sayGoodBuy();
 			return;
 			}
+	}
+	
+	private static int getChoice(int max) {
+		int ans = 0;
+		while (true) {
+			System.out.println("Ваш выбор:");
+			try{
+				ans = Integer.parseInt(scanner.next());
+				if (checkChoice(ans, max)) {
+					break;
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Еще раз :)");
+			}
+		}
+		return ans;
+	}
+	
+	private static boolean checkChoice(int ans, int max) {
+		if (ans <= max && ans > 0) {
+			return true;
+		}
+		return false;
 	}
 	
 	private static void showProducts() {
@@ -62,7 +87,7 @@ public class ShopView {
 		++i;
 		System.out.println(i + ". Выход из магазина.");
 		System.out.println("Введите номер товара для добавления его в корзину или для выхода.");
-		int choice = scanner.nextInt();
+		int choice = getChoice(shop.getProducts().size() + 2);
 		doJobWithProducts(choice);		
 		
 	}
@@ -103,16 +128,20 @@ public class ShopView {
 
 	private static void showCart() {
 		int i = 1;
-		System.out.println("Your shopping cart is:");
+		System.out.println("Ваша корзина:");
 		for (Goods item : cart.getPurchases()) {
 			System.out.println(i + ". " + item);
 			++i;
 		}
+		System.out.println(i + ". Показать итоговую стоимость.");
+		++i;
+		System.out.println(i + ". Очистить корзину.");
+		++i;
 		System.out.println(i + ". Назад в главное меню.");
 		++i;
 		System.out.println(i + ". Выход из магазина.");
 		System.out.println("Введите номер товара для удаления его из корзины или для выхода.");
-		int choice = scanner.nextInt();
+		int choice = getChoice(cart.getPurchases().size() + 4);
 		doJobWithCart(choice);
 	}
 
@@ -122,10 +151,36 @@ public class ShopView {
 			mainMenu();
 		}
 		else if (choice == cart.getPurchases().size() + 1) {
+			showSummPrice();
+			showCart();
+		}
+		else if (choice == cart.getPurchases().size() + 2) {
+			clearCart();
+			mainMenu();
+		}
+		else if (choice == cart.getPurchases().size() + 3) {
 			mainMenu();
 		}
 		else {
 			sayGoodBuy();
 		}
+	}
+
+	private static void clearCart() {
+		cart.clearAll();
+		System.out.println("Все товары из корзины удалены.");
+	}
+
+	private static void showSummPrice() {
+		System.out.println(getSummPrice());
+	}
+
+	private static Double getSummPrice() {
+		Double summ = 0.0;
+		List<Goods> prods = cart.getPurchases();
+		for (Goods item : prods) {
+			summ += item.getProductCost();
+		}
+		return summ;
 	}
 }
