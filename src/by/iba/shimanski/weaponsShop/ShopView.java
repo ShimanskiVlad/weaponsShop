@@ -3,6 +3,7 @@ package by.iba.shimanski.weaponsShop;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class ShopView {
 	
@@ -137,11 +138,13 @@ public class ShopView {
 		++i;
 		System.out.println(i + ". Очистить корзину.");
 		++i;
+		System.out.println(i + ". Показать уникальные товары.");
+		++i;
 		System.out.println(i + ". Назад в главное меню.");
 		++i;
 		System.out.println(i + ". Выход из магазина.");
 		System.out.println("Введите номер товара для удаления его из корзины или для выхода.");
-		int choice = getChoice(cart.getPurchases().size() + 4);
+		int choice = getChoice(cart.getPurchases().size() + 5);
 		doJobWithCart(choice);
 	}
 
@@ -159,11 +162,25 @@ public class ShopView {
 			mainMenu();
 		}
 		else if (choice == cart.getPurchases().size() + 3) {
+			showUniqueGoods();
+			mainMenu();
+		}
+		else if (choice == cart.getPurchases().size() + 4) {
 			mainMenu();
 		}
 		else {
 			sayGoodBuy();
 		}
+	}
+
+	private static void showUniqueGoods() {
+		Set<Goods> unique = cart.getUniqueGoods();
+		int i = 1;
+		for (Goods item : unique) {
+			System.out.println(i + ". " + item.getProduct() + ". Цена: " + item.getProductCost());
+			++i;
+		}
+		System.out.println();
 	}
 
 	private static void clearCart() {

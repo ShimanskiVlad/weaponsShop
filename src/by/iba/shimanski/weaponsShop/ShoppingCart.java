@@ -1,7 +1,9 @@
 package by.iba.shimanski.weaponsShop;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ShoppingCart {
 
@@ -37,5 +39,9 @@ public class ShoppingCart {
 			summ += item.getProductCost();
 		}
 		return summ;
+	}
+
+	public Set<Goods> getUniqueGoods() {
+		return new HashSet<>(purchases);
 	}
 }
