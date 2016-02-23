@@ -1,5 +1,7 @@
 package by.iba.shimanski.weaponsShop;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -140,11 +142,15 @@ public class ShopView {
 		++i;
 		System.out.println(i + ". Показать уникальные товары.");
 		++i;
+		System.out.println(i + ". Отсортировать по производителю.");
+		++i;
+		System.out.println(i + ". Отсортировать по убыванию цены.");
+		++i;
 		System.out.println(i + ". Назад в главное меню.");
 		++i;
 		System.out.println(i + ". Выход из магазина.");
 		System.out.println("Введите номер товара для удаления его из корзины или для выхода.");
-		int choice = getChoice(cart.getPurchases().size() + 5);
+		int choice = getChoice(cart.getPurchases().size() + 7);
 		doJobWithCart(choice);
 	}
 
@@ -166,11 +172,27 @@ public class ShopView {
 			mainMenu();
 		}
 		else if (choice == cart.getPurchases().size() + 4) {
+			sortByName();
+			showCart();
+		}
+		else if (choice == cart.getPurchases().size() + 5) {
+			sortByPrice();
+			showCart();
+		}
+		else if (choice == cart.getPurchases().size() + 6) {
 			mainMenu();
 		}
 		else {
 			sayGoodBuy();
 		}
+	}
+
+	private static void sortByPrice() {
+		Collections.sort(cart.getPurchases(), new SortedByCost());
+	}
+
+	private static void sortByName() {
+		Collections.sort(cart.getPurchases(), new SortedByName());
 	}
 
 	private static void showUniqueGoods() {
