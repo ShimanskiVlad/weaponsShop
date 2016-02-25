@@ -1,4 +1,6 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.shop;
+
+import by.iba.shimanski.weaponsShop.entity.Weapon;
 
 public class Goods<T extends Weapon> {
 	private T product;

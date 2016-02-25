@@ -1,4 +1,8 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.entity;
+
+import by.iba.shimanski.weaponsShop.interfaces.Producer;
+import by.iba.shimanski.weaponsShop.interfaces.Shootable;
+
 public class Handgun extends Weapon implements Shootable {
 
 	private int version = 0;
@@ -29,7 +33,6 @@ public class Handgun extends Weapon implements Shootable {
 		System.out.println("Shoot from Handgun!");		
 	}
 
-	
 	@Override
 	public Double bit() {
 		System.out.println("Bit by HandGun!");

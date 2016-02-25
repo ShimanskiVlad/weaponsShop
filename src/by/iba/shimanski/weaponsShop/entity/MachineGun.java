@@ -1,4 +1,9 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.entity;
+
+import by.iba.shimanski.weaponsShop.interfaces.Demountable;
+import by.iba.shimanski.weaponsShop.interfaces.Producer;
+import by.iba.shimanski.weaponsShop.interfaces.Shootable;
+
 public class MachineGun<T> extends Weapon implements Demountable, Shootable {
 	private T name;	
 
@@ -32,7 +37,6 @@ public class MachineGun<T> extends Weapon implements Demountable, Shootable {
 	public void shoot() {
 		System.out.println("Shoot from MachineGun!");
 	}
-
 	
 	@Override
 	public Double bit() {

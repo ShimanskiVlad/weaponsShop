@@ -1,6 +1,5 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.shop;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

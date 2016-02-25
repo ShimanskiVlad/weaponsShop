@@ -1,4 +1,7 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.entity;
+
+import by.iba.shimanski.weaponsShop.interfaces.Producer;
+
 public abstract class Weapon {
 
 		private Double damage;

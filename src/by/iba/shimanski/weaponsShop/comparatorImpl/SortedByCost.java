@@ -1,6 +1,8 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.comparatorImpl;
 
 import java.util.Comparator;
+
+import by.iba.shimanski.weaponsShop.shop.Goods;
 
 public class SortedByCost implements Comparator<Goods> {
 

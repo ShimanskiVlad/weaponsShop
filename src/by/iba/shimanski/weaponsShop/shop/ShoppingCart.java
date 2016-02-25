@@ -1,4 +1,4 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.shop;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -44,4 +44,5 @@ public class ShoppingCart {
 	public Set<Goods> getUniqueGoods() {
 		return new HashSet<>(purchases);
 	}
+
 }

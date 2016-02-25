@@ -1,11 +1,16 @@
-package by.iba.shimanski.weaponsShop;
+package by.iba.shimanski.weaponsShop.shop;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+import by.iba.shimanski.weaponsShop.comparatorImpl.SortedByCost;
+import by.iba.shimanski.weaponsShop.comparatorImpl.SortedByName;
+import by.iba.shimanski.weaponsShop.entity.Handgun;
+import by.iba.shimanski.weaponsShop.entity.MachineGun;
+import by.iba.shimanski.weaponsShop.entity.Stick;
+import by.iba.shimanski.weaponsShop.interfaces.Producer;
 
 public class ShopView {
 	
