@@ -55,4 +55,43 @@ public abstract class Weapon {
 					+ producer + "]";
 		}
 
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result
+					+ ((damage == null) ? 0 : damage.hashCode());
+			result = prime * result
+					+ ((producer == null) ? 0 : producer.hashCode());
+			result = prime * result + ((size == null) ? 0 : size.hashCode());
+			return result;
+		}
+
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Weapon other = (Weapon) obj;
+			if (damage == null) {
+				if (other.damage != null)
+					return false;
+			} else if (!damage.equals(other.damage))
+				return false;
+			if (producer != other.producer)
+				return false;
+			if (size == null) {
+				if (other.size != null)
+					return false;
+			} else if (!size.equals(other.size))
+				return false;
+			return true;
+		}
+
+		
 }
